@@ -1,7 +1,7 @@
 body{
-    background-image: url('/images/hangman-unsplash.jpg');
+    background-image: url("/images/hangman-unsplash.jpg");
     background-position: center;
-    background-size: auto;
+    background-size: cover;
 }
 
 .card-header {
