@@ -1,10 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Sixtyfour&display=swap');
+
+
 body{
-    background-image: url("/images/hangman-unsplash.jpg");
-    background-position: center;
-    background-size: cover;
+  background-image: url("/images/Arcade.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.card-header {
-    background-color: rgb(0, 0, 0);
-    color: antiquewhite;
+
+h1{
+  color: rgb(0, 0, 0);
+  margin: 5%;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-family: 'Sixtyfour', sans-serif;
+  }
+
+.gamecard{
+  padding: 2%;  
+  font-size: 20px;
+  background-color: #ef6713e3;
+  border: 5px solid rgb(52, 37, 194);
+  border-radius: 15px;
 }
+
+.text-center{
+  color: white;
+}
+
+

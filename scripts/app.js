@@ -46,9 +46,9 @@ restartBtn.addEventListener('click', function(){
 
 //key down/ pressing a key down, saves the value key user Inputs (Event Listener) 
 userInput.addEventListener("keydown", function(event) {
-    // event or "e"   is a reserved word which will run the function event and also stores the data from the function   its like a fishing net and grabs a bunch of data unlike us making a variable normally
+    // event or "e" is a reserved word which will run the function event and also stores the data from the function   its like a fishing net and grabs a bunch of data unlike us making a variable normally
     // console.log(event);
-    //Event looking for Enter Key
+    // event looking for Enter Key specifically
     if(event.key === "Enter"){
         let guess = userInput.value.toLowerCase();
         //Check if the users guess is included in our random word
@@ -73,43 +73,60 @@ userInput.addEventListener("keydown", function(event) {
 function dataCall() {
     //fetch information in json data file, taking in as parameter, declaring json format
     fetch('./data/data.json').then(response => response.json()).then( data => {
-//random whole number
+//random whole number/ word
         let rndNum = Math.floor(Math.random() * data.words.length);
         randomWord = data.words[rndNum];
-        console.log(randomWord);
-
+        // console.log(randomWord);
+//function to start game and pass random word into it
         startGame(randomWord);
     })
 }
 
-//start game function, allow user to type in box
+//start game function, allow user to type in box 
 function startGame(word){
 letterArray = [];
+//for loop
 for(let i = 0; i < word.length; i++){
     letterArray[i] = "_";
+    //call function update appearance
     updateGameState();
+    //allow user to input .notation conversation w/html
     userInput.readOnly = false;
 }
 }
 
+//plays audio on startBtn button click
+function play1() {
+    let audio = document.getElementById("startaudio");
+    audio.play();
+  }
+//plays audio on restartBtn button click
+function play2() {
+    let audio2 = document.getElementById("restartaudio");
+    audio2.play();
+  }
+
+//declare update game state function
 function updateGameState(){
+    //space in quotation marks for readability
     displayedWord.textContent = letterArray.join(" ");
+    //backtick for interpulation, keeping guesses used, call max guesses
     displayedGuesses.textContent = `Guesses Used: ${guesses} / ${maxGuesses}`;
 }
 
-//Reset game function to get new word, guesses back to 0
+//reset game/ all varibles declared function to get new word, guesses back to 0
 function resetGame(){
     randomWord = "";
     wrongGuess = "" ;
     letterArray = [];
     guesses = 0;
+    //disables box so user cannot type in it
     userInput.readOnly = true;
     userInput.value = "";
     displayedGuesses.textContent = "Guesses Used: X / X";
     displayedWord.textContent = "Displayed Word";
     letterBank.textContent = "Letter Bank";
 }
-
 
 
 function gameEnd(){

@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hangman</title>
+    <title>Hangman Arcade</title>
+    <link rel="icon" type="image/x-icon" href="./images/ArcadeIcon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
@@ -12,48 +13,45 @@
 
 <body>
     <div class="container-fluid">
-        <div class="position-absolute top-50 start-50 translate-middle">
-            <div class="card text-center">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="card-header">
-                        <h1>Hangman</h1>
-                    </div>
-                    </div>
+        <div class="position-absolute top-50 start-50 translate-middle gamecard">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>HANGMAN</h1>
                 </div>
-                <br />
-                <div class="row m-3">
-                    <div class="col text-center">
-                        <h3 id="displayedWord">Random Word</h3>
-                    </div>
+            </div>
+            <br />
+            <div class="row m-3">
+                <div class="col text-center">
+                    <h3 id="displayedWord">Displayed Word</h3>
                 </div>
-                <div class="row m-3">
-                    <div class="col text-center">
-                        <h4 id="displayedGuesses">Guesses Used: X / X</h4>
-                    </div>
+            </div>
+            <div class="row m-3">
+                <div class="col text-center">
+                    <h4 id="displayedGuesses">Guesses Used: X / X</h4>
                 </div>
-                <div class="row m-3">
-                    <div class="col d-flex justify-content-center border">
-                        <h5 id="letterBank">Letter Bank</h5>
-                    </div>
+            </div>
+            <div class="row m-3">
+                <div class="col d-flex justify-content-center">
+                    <h5 id="letterBank">Letter Bank</h5>
                 </div>
-                <div class="row m-4">
-                    <div class="col d-flex justify-content-center">
-                        <input type="text" id="userInput" maxlength="1" aria-readonly>
-                    </div>
+            </div>
+            <div class="row m-4">
+                <div class="col d-flex justify-content-center">
+                    <input type="text" id="userInput" maxlength="1" readonly>
                 </div>
-                <div class="row m-4">
-                    <div class="col d-flex justify-content-center">
-                        <button id="startBtn" type="button" class="btn btn-primary">Start</button>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <button id="restartBtn" type="button" class="btn btn-danger">Restart</button>
-                    </div>
+            </div>
+            <div class="row m-4">
+                <div class="col d-flex justify-content-center">
+                    <button onclick="play1()" id="startBtn" type="button" class="btn btn-primary">Start</button>
+                    <audio id="startaudio" src="/audio/start-insert-coin-arcade-machine.mp3"></audio>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button onclick="play2()" id="restartBtn" type="button" class="btn btn-danger">Restart</button>
+                    <audio id="restartaudio" src="/audio/reset-arcade-bonus.mp3"></audio>
                 </div>
             </div>
         </div>
     </div>
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
